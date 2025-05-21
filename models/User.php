@@ -21,4 +21,12 @@ class User extends ActiveRecord
     {
         return '{{%users}}';
     }
+
+    public static function getList()
+    {
+        return static::find()
+            ->select(['name', 'id'])
+            ->indexBy('id')
+            ->column();
+    }
 }
