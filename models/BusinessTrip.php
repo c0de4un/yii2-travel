@@ -25,9 +25,10 @@ class BusinessTrip extends ActiveRecord
     public function rules()
     {
         return [
+            [['id'], 'integer'],
             [['name', 'userIds'], 'required'],
-            [['name'], 'string', 'max' => 255],
-            [['starts_at', 'ends_at'], 'safe'],
+            [['name'], 'string', 'max' => 128],
+            [['starts_at', 'ends_at'], 'safe', 'on' => []],
             [['userIds'], 'each', 'rule' => ['integer']],
         ];
     }

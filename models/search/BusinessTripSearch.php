@@ -12,7 +12,8 @@ class BusinessTripSearch extends BusinessTrip
     {
         return [
             [['id'], 'integer'],
-            [['name', 'starts_at', 'ends_at'], 'safe'],
+            [['name'], 'string', 'max' => 128],
+            [['starts_at', 'ends_at'], 'safe', 'on' => []],
         ];
     }
 

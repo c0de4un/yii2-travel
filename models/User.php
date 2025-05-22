@@ -14,6 +14,15 @@ class User extends ActiveRecord
     public int $id;
     public string $name;
 
+    public function rules()
+    {
+        return [
+            [['id'], 'integer'],
+            [['name'], 'required'],
+            [['name'], 'string', 'max' => 255],
+        ];
+    }
+
     /**
      * @inheritDoc
      */
